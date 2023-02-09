@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Coronavirus Tracker Application</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+
+
+</head>
+
+
+<body class="text-dark bg-light" style="font-family:cursive;">
+
+
+
+<div style="border:2px solid black;background-color:#101010;" class="container mt-5">
+<!--background-size:'cover'    -->
+<!--    -->
+<!--    background-repeat:no-repeat;-->
+
+
+    <div style="background-color:#ffea00;" class="container-fluid mt-3">
+        <div class="row">
+            <div  class="col-md-3">
+                <img style="border:2px solid black"  src="https://lh3.googleusercontent.com/plQnUf0aq-vGnkr0Geh_QA6Wi_QIh9p14bne6SBK27D314E82NvZQfuAXvEZ_GbiaQ" width="150px" height="150px" />
+
+            </div>
+            <div class="col-md-9 mt-5">
+
+                    <h2 style="font-size:30px">CORONA VIRUS TRACKER APPLICATION</h2>
+<!--                font-weight:300px-->
+<!--                font-family:Helvetica-->
+
+            </div>
+
+
+        </div>
+
+        <p class="" style="background-color:#ffea00;font-size:20px" align="right">Developed By: TBZ</p>
+    </div>
+
+
+
+
+
+
+
+
+
+
+<div>
+
+
+<marquee style="background-color:#ffea00" class="text-dark">This Application lists the current number of cases reported across the World</marquee>
+<!--<p th:text="${testName}"></p>   -->
+
+</div>
+
+<div style="border:2px solid black;" class="jumbotron">
+
+    <h1 class="display-4" th:text="${totalReportedCases}"></h1>
+    <p class="lea d">Total Cases Reported as of Today.</p>
+    <hr class="my-4">
+    <p>
+        <span>New Cases reported since Previous Day.</span>
+        <span th:text="${totalNewCases}"></span>
+    </p>
+</div>
+
+<div style="border:2px solid black;background-color:#ffea00" class="container">
+    <table class="table">
+        <tr>
+            <th>State</th>
+            <th>Country</th>
+            <th>Total Confirmed Cases</th>
+            <th>Changes since Last Day</th>
+<!--            <th>Total Confirmed Deaths</th>-->
+<!--            <th>Total Recovered Cases</th>-->
+        </tr>
+        <tr th:each="locationStat : ${locationStats}">
+            <td th:text="${locationStat.state}"></td>
+            <td th:text="${locationStat.country}"></td>
+            <td th:text="${locationStat.ConfirmedCases}"></td>
+            <td th:text="${locationStat.diffFromPrevDay}"></td>
+<!--            <td th:text="${locationStat.ConfirmedDeaths}"></td>-->
+<!--            <td th:text="${locationStat.ConfirmedRecovered}"></td>-->
+        </tr>
+    </table>
+</div>
+</div>
+
+
+
+
+
+</body>
+
+</html>
